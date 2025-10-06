@@ -10,47 +10,46 @@ const Proyecto = () => {
   const [loading, setLoading] = useState(true);
 
   const projects = [
-   {
-  id: 1,
-  title: 'Net-Makers',
-  description: 'Plataforma para búsqueda y gestión de talentos de manera ágil.',
-  videoUrl: 'https://youtu.be/haLTdlVM7EA',
-  frontend: 'Next.js, React, TypeScript, CSS',
-  backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
-  database: 'MongoDB',
-  liveUrl: 'https://thenetmakers.net/',
-},
-{
-  id: 2,
-  title: 'Star Wars API',
-  description: 'Consume la API de Star Wars mostrando personajes, películas y detalles.',
-  videoUrl: 'https://youtu.be/hXJ0JxrilB0',
-  frontend: 'Next.js, React, TypeScript, CSS',
-  backend: 'Node.js, Express',
-  database: 'MongoDB',
-  liveUrl: 'https://people-start-wars-pd8xnmyzq-joakozuin.vercel.app/',
-},
-{
-  id: 3,
-  title: 'Ecommerce',
-  description: 'Tienda online full-stack con gráficos y visualización de productos.',
-  videoUrl: 'https://youtu.be/IfFnni3lTHw',
-  frontend: 'React, JavaScript, CSS',
-  backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
-  database: 'MongoDB',
-  liveUrl: "",
-},
-{
-  id: 4,
-  title: 'Ecommerce Avanzado',
-  description: 'Ecommerce avanzado con roles de administrador, cliente y repartidor, usando Next.js y middleware global.',
-  videoUrl: 'https://youtu.be/cc94Un6bphk',
-  frontend: 'Next.js, React, TypeScript, CSS',
-  backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
-  database: 'MongoAtlas',
-  liveUrl: "null",
-},
-
+    {
+      id: 1,
+      title: 'Net-Makers',
+      description: 'Plataforma para búsqueda y gestión de talentos de manera ágil.',
+      videoUrl: 'https://youtu.be/haLTdlVM7EA',
+      frontend: 'Next.js, React, TypeScript, CSS',
+      backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
+      database: 'MongoDB',
+      liveUrl: 'https://thenetmakers.net/',
+    },
+    {
+      id: 2,
+      title: 'Star Wars API',
+      description: 'Consume la API de Star Wars mostrando personajes, películas y detalles.',
+      videoUrl: 'https://youtu.be/hXJ0JxrilB0',
+      frontend: 'Next.js, React, TypeScript, CSS',
+      backend: 'Node.js, Express',
+      database: 'MongoDB',
+      liveUrl: 'https://people-start-wars-pd8xnmyzq-joakozuin.vercel.app/',
+    },
+    {
+      id: 3,
+      title: 'Ecommerce',
+      description: 'Tienda online full-stack con gráficos y visualización de productos.',
+      videoUrl: 'https://youtu.be/IfFnni3lTHw',
+      frontend: 'React, JavaScript, CSS',
+      backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
+      database: 'MongoDB',
+      liveUrl: "",
+    },
+    {
+      id: 4,
+      title: 'Ecommerce Avanzado',
+      description: 'Ecommerce avanzado con roles de administrador, cliente y repartidor, usando Next.js y middleware global.',
+      videoUrl: 'https://youtu.be/cc94Un6bphk',
+      frontend: 'Next.js, React, TypeScript, CSS',
+      backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
+      database: 'MongoAtlas',
+      liveUrl: "null",
+    },
   ];
 
   useEffect(() => {
@@ -77,64 +76,68 @@ const Proyecto = () => {
     <section className="projects-section">
       <h2 className="section-title">Proyectos</h2>
       <div className="projects-grid">
-        {projects.map((project) => (
-          <div key={project.id} className="project-card">
-            {loading ? (
-              <div className="video-loading">
-                <div className="spinner"></div>
-              </div>
-            ) : (
-              <>
-                <h3 className="project-title">{project.title}</h3>
+        {projects.map((project) => {
+          const youtubeID = getYouTubeID(project.videoUrl); // ✅ guardamos el ID aquí
 
-                {/* ✅ Mostrar descripción solo si existe */}
-                {project.description && project.description.trim() !== '' && (
-                  <p className="project-description">{project.description}</p>
-                )}
-
-                <div className="video-container">
-                  {getYouTubeID(project.videoUrl) ? (
-                    <LiteYouTubeEmbed
-                      id={getYouTubeID(project.videoUrl)}
-                      title={project.title}
-                      poster="hqdefault"
-                      params="autoplay=1&mute=1"
-                    />
-                  ) : (
-                    <p className="error-message">Video no disponible</p>
-                  )}
+          return (
+            <div key={project.id} className="project-card">
+              {loading ? (
+                <div className="video-loading">
+                  <div className="spinner"></div>
                 </div>
+              ) : (
+                <>
+                  <h3 className="project-title">{project.title}</h3>
 
-                <ul className="tech-list">
-                  <li><strong>Frontend:</strong> {project.frontend}</li>
-                  <li><strong>Backend:</strong> {project.backend}</li>
-                  <li><strong>Base de Datos:</strong> {project.database}</li>
-                </ul>
-
-                <div className="project-button">
-                  {project.liveUrl ? (
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary"
-                    >
-                      Ver en la web
-                    </Link>
-                  ) : (
-                    <button onClick={handleDevClick} className="btn-primary">
-                      Ver en la web
-                    </button>
+                  {project.description && project.description.trim() !== '' && (
+                    <p className="project-description">{project.description}</p>
                   )}
-                </div>
-              </>
-            )}
-          </div>
-        ))}
+
+                  <div className="video-container">
+                    {youtubeID ? (
+                      <LiteYouTubeEmbed
+                        id={youtubeID} // ✅ ahora siempre es string
+                        title={project.title}
+                        poster="hqdefault"
+                        params="autoplay=1&mute=1"
+                      />
+                    ) : (
+                      <p className="error-message">Video no disponible</p>
+                    )}
+                  </div>
+
+                  <ul className="tech-list">
+                    <li><strong>Frontend:</strong> {project.frontend}</li>
+                    <li><strong>Backend:</strong> {project.backend}</li>
+                    <li><strong>Base de Datos:</strong> {project.database}</li>
+                  </ul>
+
+                  <div className="project-button">
+                    {project.liveUrl && project.liveUrl !== "null" ? (
+                      <Link
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary"
+                      >
+                        Ver en la web
+                      </Link>
+                    ) : (
+                      <button onClick={handleDevClick} className="btn-primary">
+                        Ver en la web
+                      </button>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
 };
 
 export default Proyecto;
+
 
