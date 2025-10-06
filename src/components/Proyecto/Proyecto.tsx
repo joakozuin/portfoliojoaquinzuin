@@ -1,4 +1,3 @@
-// src/components/ProjectsSection.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -11,37 +10,51 @@ const Proyecto = () => {
   const [loading, setLoading] = useState(true);
 
   const projects = [
-    {
-      id: 1,
-      title: 'Net-Makers',
-      videoUrl: 'https://youtu.be/haLTdlVM7EA',
-      frontend: 'Next.js, React, TypeScript, CSS',
-      backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
-      database: 'MongoDB',
-      liveUrl: 'https://www.thenetmakers.com/',
-    },
-    {
-      id: 2,
-      title: 'Star Wars API',
-      videoUrl: 'https://youtu.be/hXJ0JxrilB0',
-      frontend: 'Next.js, React, JavaScript, CSS',
-      backend: 'Node.js, Express',
-      database: 'MongoDB',
-      liveUrl: 'https://people-start-wars-pd8xnmyzq-joakozuin.vercel.app/',
-    },
-    {
-      id: 3,
-      title: 'Ecommerce',
-      videoUrl: 'https://youtu.be/IfFnni3lTHw',
-      frontend: 'Next.js, React, JavaScript, CSS',
-      backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
-      database: 'MongoDB',
-      liveUrl: null,
-    },
+   {
+  id: 1,
+  title: 'Net-Makers',
+  description: 'Plataforma para búsqueda y gestión de talentos de manera ágil.',
+  videoUrl: 'https://youtu.be/haLTdlVM7EA',
+  frontend: 'Next.js, React, TypeScript, CSS',
+  backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
+  database: 'MongoDB',
+  liveUrl: 'https://thenetmakers.net/',
+},
+{
+  id: 2,
+  title: 'Star Wars API',
+  description: 'Consume la API de Star Wars mostrando personajes, películas y detalles.',
+  videoUrl: 'https://youtu.be/hXJ0JxrilB0',
+  frontend: 'Next.js, React, TypeScript, CSS',
+  backend: 'Node.js, Express',
+  database: 'MongoDB',
+  liveUrl: 'https://people-start-wars-pd8xnmyzq-joakozuin.vercel.app/',
+},
+{
+  id: 3,
+  title: 'Ecommerce',
+  description: 'Tienda online full-stack con gráficos y visualización de productos.',
+  videoUrl: 'https://youtu.be/IfFnni3lTHw',
+  frontend: 'React, JavaScript, CSS',
+  backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
+  database: 'MongoDB',
+  liveUrl: null,
+},
+{
+  id: 4,
+  title: 'Ecommerce Avanzado',
+  description: 'Ecommerce avanzado con roles de administrador, cliente y repartidor, usando Next.js y middleware global.',
+  videoUrl: 'https://youtu.be/cc94Un6bphk',
+  frontend: 'Next.js, React, TypeScript, CSS',
+  backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
+  database: 'MongoAtlas',
+  liveUrl: null,
+},
+
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000); // Reducido a 1s para mejor UX
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -73,23 +86,31 @@ const Proyecto = () => {
             ) : (
               <>
                 <h3 className="project-title">{project.title}</h3>
+
+                {/* ✅ Mostrar descripción solo si existe */}
+                {project.description && project.description.trim() !== '' && (
+                  <p className="project-description">{project.description}</p>
+                )}
+
                 <div className="video-container">
                   {getYouTubeID(project.videoUrl) ? (
                     <LiteYouTubeEmbed
                       id={getYouTubeID(project.videoUrl)}
                       title={project.title}
                       poster="hqdefault"
-                      params="autoplay=1&mute=1" // opcional
+                      params="autoplay=1&mute=1"
                     />
                   ) : (
                     <p className="error-message">Video no disponible</p>
                   )}
                 </div>
+
                 <ul className="tech-list">
                   <li><strong>Frontend:</strong> {project.frontend}</li>
                   <li><strong>Backend:</strong> {project.backend}</li>
                   <li><strong>Base de Datos:</strong> {project.database}</li>
                 </ul>
+
                 <div className="project-button">
                   {project.liveUrl ? (
                     <Link
@@ -116,3 +137,4 @@ const Proyecto = () => {
 };
 
 export default Proyecto;
+
