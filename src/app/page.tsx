@@ -1,95 +1,48 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// src/app/page.tsx
+import Image from 'next/image';
+import SkillSection from '@/components/Section';
 
-export default function Home() {
+export default function HomePage() {
+  const frontend = ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SCSS'];
+  const backend = ['Node.js', 'Express', 'NestJS', 'cookie-parser'];
+  const databases = ['MongoDB', 'PostgreSQL', 'MySQL', 'SQL Server'];
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <>
+      {/* Tarjeta de presentación */}
+      <div className="profile-card">
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/imagenJSZ.jpg"
+          alt="Joaquín Sebastián Zuin"
+          width={150}
+          height={150}
+          className="profile-image"
         />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <div className="profile-text">
+          <h1>Soy Joaquín Sebastián Zuin</h1>
+          <p>Analista de Sistemas y Programación</p>
+          <p className="experience">5 años de experiencia</p>
+          <p className="graduation-note">Me recibí en el año 2023</p>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      {/* Objetivos laborales */}
+      <h1 className="objectives-title">Objetivos laborales</h1>
+      <div className="objectives-list">
+        <ul>
+          <li>Cuento con gran capacidad para resolver problemas.</li>
+          <li>Me caracterizó por mi responsabilidad y búsqueda de alternativas de solución.</li>
+          <li>Me destaco por mi capacidad para aprender y trabajar en equipo.</li>
+          <li>Mi principal objetivo es desempeñarme en una empresa que valore la integración de jóvenes que inicien su actividad laboral ofreciendo posibilidad de progreso y crecimiento personal.</li>
+        </ul>
+      </div>
+
+      {/* Habilidades */}
+      <div className="skills-section">
+        <SkillSection title="Frontend" skills={frontend} />
+        <SkillSection title="Backend" skills={backend} />
+        <SkillSection title="Base de Datos" skills={databases} />
+      </div>
+    </>
   );
 }
