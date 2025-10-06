@@ -20,7 +20,7 @@ export default function HomePage() {
         />
         <div className="profile-text">
           <h1>Soy Joaquín Sebastián Zuin</h1>
-          <p>Analista de Sistemas y Programación</p>
+          <p>Analista de Sistemas y Programación Full Stack</p>
           <p className="experience">5 años de experiencia</p>
           <p className="graduation-note">Me recibí en el año 2023</p>
         </div>

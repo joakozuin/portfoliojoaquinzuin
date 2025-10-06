@@ -31,8 +31,9 @@ body {
 .main-content {
   display: flex;
   flex: 1;
-  padding: 20px;
   gap: 20px;
+  padding: 20px;
+  background-color: var(--green-bg);
 }
 
 /* === Navbar === */
@@ -57,19 +58,70 @@ body {
   background-color: var(--green-light);
   border-radius: 12px;
   padding: 20px;
-  height: fit-content;
-  display: block;
+  height: calc(100vh - 120px); /* Ajusta según altura del navbar + footer */
+  overflow-y: auto;
+  position: sticky;
+  top: 60px; /* Altura aproximada del navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.sidebar h2 {
-  margin-bottom: 16px;
+.sidebar-title {
+  font-size: 1.3rem;
   color: var(--green-dark);
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 12px;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-link:hover {
+  background-color: var(--white);
+  color: var(--green-main);
+}
+
+.sidebar-link-active {
+  background-color: var(--white);
+  color: var(--green-dark);
+  font-weight: bold;
+}
+
+/* En móviles, si querés mantenerlo visible */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 /* === Main === */
 .main {
   flex: 1;
   max-width: 1000px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow);
+  overflow-y: auto;
+  min-height: calc(100vh - 120px); /* Ajusta según navbar + footer */
 }
 
 /* === Tarjeta de presentación === */
@@ -164,7 +216,26 @@ body {
   font-size: 1.1rem;
   text-align: center;
 }
+/* === Responsivo: en móvil, sidebar abajo === */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    padding: 10px;
+  }
 
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    margin-bottom: 20px;
+    top: 0;
+  }
+
+  .main {
+    min-height: auto;
+    padding: 16px;
+  }
+}
 /* Responsivo: ajustar en móviles */
 @media (max-width: 768px) {
   .objectives-title {
@@ -255,5 +326,96 @@ body {
 
   .skill-list {
     grid-template-columns: 1fr;
+  }
+}
+
+/* === Botón hamburguesa === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--green-dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* === Overlay para sidebar móvil === */
+.sidebar-overlay {
+  display: none;
+}
+
+/* === Sidebar móvil (oculto por defecto) === */
+.sidebar-mobile {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--green-light);
+  padding: 20px;
+  z-index: 1000;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--green-dark);
+  cursor: pointer;
+}
+
+/* === Abrir sidebar móvil === */
+.sidebar-mobile-open {
+  left: 0 !important;
+}
+
+.sidebar-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+/* === Mostrar hamburguesa solo en móvil === */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* Ocultar sidebar de escritorio en móvil */
+  .sidebar {
+    display: none;
+  }
+
+  /* Ajustar main para que no se esconda detrás del sidebar */
+  .main {
+    padding: 20px 16px;
   }
 }
