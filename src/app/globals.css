@@ -639,13 +639,54 @@ body {
   }
 }
 
+/* === Experiencia Profesional === */
+.experiencia-section {
+  margin: 60px 0;
+}
+
+.experiencia-section .section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--green-dark);
+  margin-bottom: 40px;
+}
+
+.experiencia-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* ← espacio entre tarjetas */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.experiencia-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 12px var(--shadow);
+  border-left: 4px solid var(--green-light);
+  position: relative;
+}
+
+/* Opcional: línea divisoria sutil entre tarjetas */
+.experiencia-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background-color: var(--green-light);
+}
+
 .empresa-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .empresa-header > div {
@@ -654,23 +695,110 @@ body {
 }
 
 .empresa-nombre {
-  font-size: 1.4rem;
-  color: var(--green-dark);
-  font-weight: bold;
-  margin-bottom: 4px;
+  font-size: 1.5rem;
+  color: #2d2d2d; /* Negro suave, profesional */
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .empresa-pais {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--green-main);
   margin: 0;
   font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .empresa-periodo {
-  color: var(--green-main);
+  color: var(--text-primary);
   font-style: italic;
   font-size: 0.95rem;
   white-space: nowrap;
   text-align: right;
+  align-self: flex-end;
+}
+
+.rol {
+  font-weight: 600;
+  color: var(--green-dark);
+  margin: 16px 0 12px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.descripcion {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.logros-title {
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  margin: 20px 0 12px;
+  font-weight: 600;
+}
+
+.logros-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.logros-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  line-height: 1.55;
+  color: #555;
+}
+
+.logros-list li::before {
+  content: "✓";
+  color: var(--green-main);
+  font-size: 1.1rem;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-weight: bold;
+}
+
+.empresa-link {
+  display: inline-block;
+  color: var(--white);
+  background-color: var(--green-main);
+  padding: 9px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.empresa-link:hover {
+  background-color: var(--green-dark);
+}
+
+/* === Responsivo === */
+@media (max-width: 768px) {
+  .experiencia-card {
+    padding: 22px;
+  }
+
+  .empresa-nombre {
+    font-size: 1.35rem;
+  }
+
+  .empresa-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .empresa-periodo {
+    text-align: left;
+    align-self: auto;
+  }
 }
