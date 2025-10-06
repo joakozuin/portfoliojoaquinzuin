@@ -419,3 +419,205 @@ body {
     padding: 20px 16px;
   }
 }
+
+
+.projects-section {
+  margin: 80px 0;
+  text-align: center;
+  background: linear-gradient(180deg, #f9fafc 0%, #ffffff 100%);
+  padding: 40px 0;
+}
+
+/* === TÍTULO DE SECCIÓN === */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #2e7d32;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 70%;
+  height: 4px;
+  background: linear-gradient(to right, #43a047, #512da8);
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+/* === GRID DE TARJETAS === */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* === TARJETA DE PRESENTACIÓN === */
+.project-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 26px;
+  margin: 10px;
+  border: 2px solid #000; /* Borde negro */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform: translateY(0);
+  text-align: left;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 18px;
+  padding: 3px;
+  background: linear-gradient(135deg, #43a047, #512da8, #ffca28);
+  background-size: 300% 300%;
+  animation: gradientBorder 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 30px rgba(81, 45, 168, 0.25);
+}
+
+/* === TÍTULO DEL PROYECTO === */
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* === VIDEO === */
+.video-container {
+  margin-bottom: 18px;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  box-shadow: 0 6px 18px rgba(81, 45, 168, 0.15);
+  background: linear-gradient(135deg, #e0e0e0, #fafafa);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover .video-container {
+  transform: scale(1.03);
+  box-shadow: 0 10px 28px rgba(81, 45, 168, 0.25);
+}
+
+/* === LISTA DE TECNOLOGÍAS === */
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+
+.tech-list li {
+  margin-bottom: 10px;
+  padding-left: 14px;
+  border-left: 4px solid #43a047;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  background-color: rgba(67, 160, 71, 0.05);
+  border-radius: 4px;
+}
+
+.tech-list li:hover {
+  background-color: rgba(81, 45, 168, 0.08);
+  border-left-color: #512da8;
+}
+
+/* === BOTÓN === */
+.project-button {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #43a047, #512da8);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 14px rgba(81, 45, 168, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(67, 160, 71, 0.3);
+  background: linear-gradient(135deg, #512da8, #43a047);
+}
+
+/* === CARGANDO === */
+.video-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.spinner {
+  border: 4px solid #ddd;
+  border-top: 4px solid #512da8;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .projects-grid {
+    padding: 0 14px;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .video-container {
+    height: 180px;
+  }
+
+  .btn-primary {
+    font-size: 0.95rem;
+  }
+}

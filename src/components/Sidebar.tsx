@@ -11,6 +11,7 @@ export default function Sidebar() {
     { name: 'Inicio', href: '/' },
     { name: 'Proyectos', href: '/proyectos' },
      { name: 'Redes', href: '/redes' },
+     { name: 'Empresa', href: '/empresa' },
     { name: 'Contacto', href: '/contacto' },
     { name: 'CV', href: '/cv' },
   ];

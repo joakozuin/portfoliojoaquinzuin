@@ -68,3 +68,19 @@ Este no es solo un sitio web: es una **demostración viva de mis habilidades té
 - 📧 Correo electrónico : tu-email@ejemplo.com
 - 💼 LinkedIn : linkedin.com/in/tu-perfil
 - 🐙 GitHub : github.com/tu-usuario
+
+
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css          ← Aquí va todo el CSS puro
+├── components/
+│   ├── Navbar.tsx
+│   ├── Sidebar.tsx
+│   ├── Footer.tsx
+│   └── SkillSection.tsx
+│ 
+├── proyectos/page.tsx
+├── contacto/page.tsx
+└── cv/page.tsx       → (opcional, para ver tu CV)
