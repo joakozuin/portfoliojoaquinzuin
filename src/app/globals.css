@@ -638,3 +638,39 @@ body {
     font-size: 0.95rem;
   }
 }
+
+.empresa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.empresa-header > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.empresa-nombre {
+  font-size: 1.4rem;
+  color: var(--green-dark);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.empresa-pais {
+  font-size: 0.95rem;
+  color: var(--green-main);
+  margin: 0;
+  font-style: normal;
+}
+
+.empresa-periodo {
+  color: var(--green-main);
+  font-style: italic;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  text-align: right;
+}

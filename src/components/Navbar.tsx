@@ -50,11 +50,12 @@ export default function Navbar() {
         <nav className="sidebar-nav">
           <ul>
             {[
-              { name: 'Inicio', href: '/' },
-              { name: 'Proyectos', href: '/proyectos' },
-              { name: 'Redes', href: '/redes' },
-              { name: 'Contacto', href: '/contacto' },
-              { name: 'CV', href: '/cv' },
+                  { name: 'Inicio', href: '/' },
+    { name: 'Proyectos', href: '/proyectos' },
+     { name: 'Redes', href: '/redes' },
+     { name: 'Empresa', href: '/empresa' },
+    { name: 'Contacto', href: '/contacto' },
+    { name: 'CV', href: '/cv' },
             ].map((link) => (
               <li key={link.href}>
                 <a
