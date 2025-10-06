@@ -38,7 +38,7 @@ const Proyecto = () => {
   frontend: 'React, JavaScript, CSS',
   backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
   database: 'MongoDB',
-  liveUrl: null,
+  liveUrl: "",
 },
 {
   id: 4,
@@ -48,7 +48,7 @@ const Proyecto = () => {
   frontend: 'Next.js, React, TypeScript, CSS',
   backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
   database: 'MongoAtlas',
-  liveUrl: null,
+  liveUrl: "null",
 },
 
   ];
