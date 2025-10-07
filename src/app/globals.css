@@ -802,3 +802,81 @@ body {
     align-self: auto;
   }
 }
+
+/* === Redes Sociales === */
+.redes-section {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.redes-section .section-title {
+  font-size: 2rem;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.redes-subtitle {
+  color: var(--text-primary);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+.redes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.redes-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.redes-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-light);
+  box-shadow: 0 6px 14px var(--shadow);
+  color: var(--green-dark);
+}
+
+.redes-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: var(--green-main);
+}
+
+.redes-nombre {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* Íconos específicos (opcional: colores por red) */
+.redes-card[href*="facebook"] .redes-icon { color: #1877f2; }
+.redes-card[href*="instagram"] .redes-icon { color: #e1306c; }
+.redes-card[href*="linkedin"] .redes-icon { color: #0a66c2; }
+.redes-card[href*="github"] .redes-icon { color: #333; }
+.redes-card[href^="mailto"] .redes-icon { color: var(--green-main); }
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .redes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .redes-card {
+    padding: 16px 12px;
+  }
+}

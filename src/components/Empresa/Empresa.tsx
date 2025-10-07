@@ -42,7 +42,7 @@ const Empresa = () => {
       id: 3,
       empresa: 'Red de Salud Tecnología',
       pais: 'Argentina',
-      periodo: '11 de junio de 2025',
+      periodo: '11 de junio de 2025 - actualidad',
       rol: 'Desarrollador FrontEnd y Analista de Sistemas',
       descripcion:
         'Con experiencia en el diseño e implementación de interfaces web responsivas y dinámicas, así como en la gestión integral de productos para plataformas eCommerce. Con sólidos conocimientos en automatización de procesos, manejo de bases de datos relacionales y administración de sistemas.',
