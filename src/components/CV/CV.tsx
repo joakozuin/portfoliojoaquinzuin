@@ -1,4 +1,4 @@
-// src/components/CV.tsx
+
 'use client';
 
 import React, { useRef } from 'react';
@@ -100,7 +100,7 @@ const CV = () => {
               <li>Manejo de instancias de bases de datos...</li>
               <li>Colaboración en proyectos de integración entre FrontEnd y Backend...</li>
             </ul>
-            <p className="experience-link">https://www.thenetmakers.com/</p>
+            <p className="experience-link">https://thenetmakers.net/</p>
           </div>
 
           <div className="experience-item">

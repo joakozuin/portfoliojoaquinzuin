@@ -1,4 +1,3 @@
-// src/components/SkillSection.tsx
 interface SkillSectionProps {
   title: string;
   skills: string[];

@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import Image from 'next/image';
 import SkillSection from '@/components/Section';
 

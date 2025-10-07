@@ -48,7 +48,7 @@ const Proyecto = () => {
       frontend: 'Next.js, React, TypeScript, CSS',
       backend: 'Node.js, Express, CORS, JWT, Bcrypt, cookie-parser',
       database: 'MongoAtlas',
-      liveUrl: "null",
+      liveUrl: "",
     },
   ];
 
@@ -96,7 +96,7 @@ const Proyecto = () => {
                   <div className="video-container">
                     {youtubeID ? (
                       <LiteYouTubeEmbed
-                        id={youtubeID} // ✅ ahora siempre es string
+                        id={youtubeID} 
                         title={project.title}
                         poster="hqdefault"
                         params="autoplay=1&mute=1"

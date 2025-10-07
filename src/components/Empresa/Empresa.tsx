@@ -18,7 +18,7 @@ const Empresa = () => {
         'Manejo de instancias de bases de datos, incluyendo respaldos, restauraciones y migraciones entre entornos.',
         'Colaboración en proyectos de integración entre FrontEnd y Backend para garantizar consistencia de datos y mejora continua en la experiencia del usuario.',
       ],
-      url: 'https://www.thenetmakers.com/',
+      url: 'https://thenetmakers.net/',
     },
     {
       id: 2,
